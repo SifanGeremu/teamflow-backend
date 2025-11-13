@@ -2,6 +2,8 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
+import authRouter from "./routes/auth.js";
+import requireAuth from "./middleware/auth.js";
 
 dotenv.config();
 
@@ -17,6 +19,16 @@ app.get("/", (req, res) => {
     message: "TeamFlow API v1",
     status: "running",
     timestamp: new Date().toISOString(),
+  });
+});
+// Mount auth routes
+app.use('/api/auth', authRouter);
+
+// Test protected route
+app.get('/api/test', requireAuth, (req, res) => {
+  res.json({ 
+    message: 'You are logged in!', 
+    user: { id: req.user.id, email: req.user.email } 
   });
 });
 
