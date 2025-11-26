@@ -1,7 +1,7 @@
 import express from "express";
 import pool from "../db/db.js";
 import { v4 as uuidv4 } from "uuid";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import fs from "fs";
 import path from "path";
@@ -19,15 +19,16 @@ const authQueries = fs
   .filter((q) => q.trim());
 
 const [registerQuery, loginQuery] = authQueries.map((q) => q.trim());
+
 // REGISTER endpoint
-router.post('/register', async (req, res) => {
+router.post("/register", async (req, res) => {
   try {
     const { full_name, email, password } = req.body;
 
     // Check if user exists
     const [rows] = await pool.query(loginQuery, [email]);
     if (rows.length > 0) {
-      return res.status(400).json({ error: 'Email already exists' });
+      return res.status(400).json({ error: "Email already exists" });
     }
 
     // Generate ID + hash password
@@ -40,27 +41,28 @@ router.post('/register', async (req, res) => {
 
     res.status(201).json({ id, full_name, email });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Server error' });
+    console.error("Register error:", error);
+    res.status(500).json({ error: "Server error" });
   }
 });
+
 // LOGIN endpoint
-router.post('/login', async (req, res) => {
+router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
 
     // Find user
     const [rows] = await pool.query(loginQuery, [email]);
     if (rows.length === 0) {
-      return res.status(400).json({ error: 'Invalid email or password' });
+      return res.status(400).json({ error: "Invalid email or password" });
     }
 
     const user = rows[0];
 
-    // Check password
+    // Compare password
     const match = await bcrypt.compare(password, user.password_hash);
     if (!match) {
-      return res.status(400).json({ error: 'Invalid email or password' });
+      return res.status(400).json({ error: "Invalid email or password" });
     }
 
     // Create JWT
@@ -72,8 +74,9 @@ router.post('/login', async (req, res) => {
 
     res.json({ token });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Server error' });
+    console.error("Login error:", error);
+    res.status(500).json({ error: "Server error" });
   }
 });
+
 export default router;
