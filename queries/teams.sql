@@ -1,10 +1,5 @@
--- 1. Create a new team
--- ? = id, name, created_by (user_id of creator)
-INSERT INTO teams (id, name, created_by) 
-VALUES (?, ?, ?);
+INSERT INTO teams (id, name, created_by) VALUES (?, ?, ?);
 
--- 2. List all teams that a user belongs to
--- ? = user_id
 SELECT 
   t.id, 
   t.name, 

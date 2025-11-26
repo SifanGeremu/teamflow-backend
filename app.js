@@ -4,6 +4,8 @@ import cors from "cors";
 import dotenv from "dotenv";
 import authRouter from "./routes/auth.js";
 import requireAuth from "./middleware/auth.js";
+import teamsRouter from "./routes/teams.js";
+
 
 dotenv.config();
 
@@ -12,7 +14,9 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(express.json());
-
+app.use("/api/teams", teamsRouter);
+app.use('/api/auth', authRouter);
+app.use('/api/teams', teamsRouter);   
 // Test Route
 app.get("/", (req, res) => {
   res.json({
