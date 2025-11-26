@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import authRouter from "./routes/auth.js";
 import requireAuth from "./middleware/auth.js";
 import teamsRouter from "./routes/teams.js";
+import tasksRouter from "./routes/tasks.js";
 
 
 dotenv.config();
@@ -17,6 +18,8 @@ app.use(express.json());
 app.use("/api/teams", teamsRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/teams', teamsRouter);   
+
+app.use("/api/tasks", tasksRouter);
 // Test Route
 app.get("/", (req, res) => {
   res.json({

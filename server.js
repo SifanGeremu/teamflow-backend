@@ -2,14 +2,14 @@
 import http from "http";
 import app from "./app.js";
 import { Server } from "socket.io";
-import pool from "./db/db.js"; // Test DB
+import pool from "./db/db.js";
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5001;
 
 // Create HTTP server
 const server = http.createServer(app);
 
-// Socket.io 
+// Create Socket.io instance
 const io = new Server(server, {
   cors: {
     origin: "*",
@@ -17,9 +17,25 @@ const io = new Server(server, {
   },
 });
 
+// Export io so routes can use it
+export { io };
+
+// Socket.io connection
 io.on("connection", (socket) => {
-  console.log("New client connected:", socket.id);
-  socket.emit("welcome", { message: "wellcome to teamflow a notion,jira and trello app alltogether" });
+  console.log("User connected:", socket.id);
+
+  socket.on("join_team", (teamId) => {
+    socket.join(teamId);
+    console.log(`User ${socket.id} joined team room: ${teamId}`);
+  });
+
+  socket.on("member_joined", ({ teamId, member }) => {
+    io.to(teamId).emit("member_joined", member);
+  });
+
+  socket.on("disconnect", () => {
+    console.log("User disconnected:", socket.id);
+  });
 });
 
 // Start server
