@@ -4,7 +4,7 @@ import app from "./app.js";
 import { Server } from "socket.io";
 import pool from "./db/db.js";
 
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 3000;
 
 // Create HTTP server
 const server = http.createServer(app);
