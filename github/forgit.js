@@ -9,3 +9,6 @@ if (admin) {
 
 let access = admin ? "all access granted" : "limited access granted";
 console.log(access);    
+
+let role=admin? "admin": "user";
+console.log(`you are logged in as ${role}`);
