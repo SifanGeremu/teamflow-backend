@@ -12,3 +12,12 @@ console.log(access);
 
 let role=admin? "admin": "user";
 console.log(`you are logged in as ${role}`);
+
+
+const handleLogin = (user) => {
+  return user === "sifan" ? "admin" : "user";
+}   if (handleLogin(currentuser) === "admin") {
+  console.log("you have admin privileges");
+} else {
+  console.log("you have user privileges");
+} 
