@@ -21,3 +21,26 @@ const handleLogin = (user) => {
 } else {
   console.log("you have user privileges");
 } 
+const handleLogin = (user) => {
+  return user === "sifan" ? "admin" : "user";
+}   if (handleLogin(currentuser) === "admin") {
+  console.log("you have admin privileges");
+} else {
+  console.log("you have user privileges");
+} 
+const handleLogin = (user) => {
+  return user === "sifan" ? "admin" : "user";
+}   if (handleLogin(currentuser) === "admin") {
+  console.log("you have admin privileges");
+} else {
+  console.log("you have user privileges");
+} 
+
+const handleLogin = (user) => {
+  return user === "sifan" ? "admin" : "user";
+}
+  if (handleLogin(currentuser) === "admin") {
+  console.log("you have admin privileges");
+} else {
+  console.log("you have user privileges");
+};
