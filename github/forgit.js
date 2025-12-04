@@ -94,3 +94,23 @@ if (handleLogin(currentuser) === "admin") {
 } else {
   console.log("you have user privileges");
 };
+if (handleLogin(currentuser) === "admin") {
+  console.log("you have admin privileges");
+} else {
+  console.log("you have user privileges");
+};
+ if (handleLogin(currentuser) === "admin") {
+  console.log("you have admin privileges");
+} else {
+  console.log("you have user privileges");
+};
+if (handleLogin(currentuser) === "admin") {
+  console.log("you have admin privileges");
+} else {
+  console.log("you have user privileges");
+};
+ if (handleLogin(currentuser) === "admin") {
+  console.log("you have admin privileges");
+} else {
+  console.log("you have user privileges");
+};
