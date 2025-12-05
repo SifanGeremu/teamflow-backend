@@ -211,4 +211,11 @@ const handleLogin = (user) => {
 
   console.log("you have user privileges");  
 
-  
+  const registerUser = (user) => {
+    return user === "sifan" ? "admin" : "user";
+  }     
+    if (registerUser(currentuser) === "admin") {
+    console.log("admin access granted");
+  } else {
+    console.log("user access granted");
+  }
