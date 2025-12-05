@@ -219,3 +219,12 @@ const handleLogin = (user) => {
   } else {
     console.log("user access granted");
   }
+  const  notifyUser = (user) => {
+    return user === "sifan" ? "admin" : "user";
+  }       
+    if (notifyUser(currentuser) === "admin") {  
+    console.log("admin notifications enabled");
+  } else {
+    console.log("user notifications enabled");
+
+      
