@@ -226,3 +226,33 @@ const handleLogin = (user) => {
     console.log("admin notifications enabled");
   } else {
     console.log("user notifications enabled");
+    }       
+    if (notifyUser(currentuser) === "admin") {  
+    console.log("admin notifications enabled");
+  } else {
+    console.log("user notifications enabled");
+    }       
+    if (notifyUser(currentuser) === "admin") {  
+    console.log("admin notifications enabled");
+  } else {
+    console.log("user notifications enabled");
+    }       
+    if (notifyUser(currentuser) === "admin") {  
+    console.log("admin notifications enabled");
+  } else {
+    console.log("user notifications enabled");
+    }       
+    if (notifyUser(currentuser) === "admin") {  
+    console.log("admin notifications enabled");
+  } else {
+    console.log("user notifications enabled");
+    }       
+    if (notifyUser(currentuser) === "admin") {  
+    console.log("admin notifications enabled");
+  } else {
+    console.log("user notifications enabled");
+    }       
+    if (notifyUser(currentuser) === "admin") {  
+    console.log("admin notifications enabled");
+  } else {
+    console.log("user notifications enabled");
