@@ -19,3 +19,13 @@ Framework,Express,Lightweight and unopinionated.
 Database,MySQL,"Reliable, relational, and robust for complex task linking."
 Querying,Raw SQL,Maximum control and optimized execution plans.
 Real-time,Socket.io,Bidirectional communication with automatic reconnection.
+🏗 System Architecture
+
+The API is designed to handle a high volume of concurrent users by separating concerns between RESTful state changes and real-time event broadcasting.
+🔒 Security Flow
+
+    Authentication: User logs in → System verifies via bcrypt → Issues a signed JWT.
+
+    Authorization: Middleware checks the user's role against the requested resource.
+
+    Data Integrity: Raw SQL transactions ensure that task updates are atomic—nothing gets lost in the shuffle.
