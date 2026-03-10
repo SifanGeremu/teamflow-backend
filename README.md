@@ -29,3 +29,24 @@ The API is designed to handle a high volume of concurrent users by separating co
     Authorization: Middleware checks the user's role against the requested resource.
 
     Data Integrity: Raw SQL transactions ensure that task updates are atomic—nothing gets lost in the shuffle.
+🏁 Getting Started (Quick Start)
+
+    Clone the repo
+    Bash
+
+    git clone https://github.com/SifanGeremu/teamflow-backend/
+
+    Install dependencies
+    Bash
+
+    npm install
+
+    Configure Environment
+    Create a .env file and add your DB_HOST, DB_USER, DB_PASS, and JWT_SECRET.
+
+    Run the Engine
+    Bash
+
+    npm run dev
+
+Coming Soon: Detailed API documentation for endpoints, including POST /tasks, PATCH /projects, and Socket event listeners.
