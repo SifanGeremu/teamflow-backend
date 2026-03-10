@@ -13,3 +13,9 @@ Key Features
     Raw Performance: We skipped the heavy ORMs. By using Raw SQL, we keep database interactions lean, predictable, and lightning-fast.
 
     Secure Foundation: Industry-standard JWT (JSON Web Tokens) authentication keeps user data locked down and sessions seamless.
+Layer,Technology,Why we chose it
+Runtime,Node.js,Non-blocking I/O is perfect for real-time apps.
+Framework,Express,Lightweight and unopinionated.
+Database,MySQL,"Reliable, relational, and robust for complex task linking."
+Querying,Raw SQL,Maximum control and optimized execution plans.
+Real-time,Socket.io,Bidirectional communication with automatic reconnection.
